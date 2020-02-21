@@ -17,6 +17,7 @@ github : https://github.com/gauravsh02
     body {
       font-family: "Arial", Helvetica, sans-serif;
       text-align: center;
+      margin: 0;
     }
     button {
       float: right;
@@ -168,7 +169,7 @@ Canvas.prototype.clear = function(){
 (function(){
   var c = document.getElementById('canvas1');
   c.height = 500;
-  c.width = 1340;
+  c.width = document.body.clientWidth - 2
   var ca = new Canvas(c);
 })();
 </script>
