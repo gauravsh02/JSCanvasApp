@@ -34,7 +34,8 @@ github : https://github.com/gauravsh02
   <!-- <h2>Simple Canvas App</h2> -->
   <canvas id='canvas1'></canvas>
   <div class="">
-    <button id='rect'>Rect</button>
+    <button id='tri'>Triangle</button>
+    <button id='rect'>Rectangle</button>
   </div>
   <div class="">
     <button id='clear' onclick='clear();'>Clear</button>
@@ -49,10 +50,9 @@ github : https://github.com/gauravsh02
   c.width = document.body.clientWidth - 2
   var ca = new Canvas(c);
   var rectButton = document.getElementById('rect');
-  rectButton.onclick = function(){
-    console.log("rect button clicked");
-    ca.initlize
-  };
+  rectButton.onclick = function(){ca.initPolygon(4);};
+  var tritButton = document.getElementById('tri');
+  tritButton.onclick = function(){ca.initPolygon(3);};
 })();
 //create new random rgb color str
 function getNewColor (){
