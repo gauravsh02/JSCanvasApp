@@ -6,25 +6,19 @@ function Polygon(sides, rgb){
 //Draw Polygon
 Polygon.prototype.drawPolygon = function(ctx){
   let newPath = new Path2D();
-  let startPosX, startPosY;
+  newPath.moveTo(this.sides[0].x, this.sides[0].y);
   ctx.beginPath();
+  ctx.moveTo(this.sides[0].x, this.sides[0].y);
   this.sides.forEach(function(s, i){
-    if(!i){
-      startPosX = s.x;
-      startPosY = s.y;
-      ctx.moveTo(s.x, s.y);
-      newPath.moveTo(s.x, s.y);
-    } else {
-      ctx.lineTo(s.x, s.y);
-      newPath.lineTo(s.x, s.y);
-    }
+    ctx.lineTo(s.x, s.y);
+    newPath.lineTo(s.x, s.y);
   });
-  ctx.lineTo(startPosX, startPosY);
+  ctx.lineTo(this.sides[0].x, this.sides[0].y);
+  ctx.closePath();
   ctx.lineWidth=2;
   ctx.stroke();
   ctx.fillStyle = this.color;
   ctx.fill();
-
   newPath.closePath();
   this.polygonPath = newPath;
 }
